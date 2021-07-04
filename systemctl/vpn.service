@@ -1,0 +1,9 @@
+[Unit]
+Description=vpn
+After=network.target
+
+[Service]
+ExecStart=/bin/sh -c '/usr/sbin/openvpn /root/company.ovpn'
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Rclone
+After=network.target network-online.target
+
+[Service]
+ExecStart=/bin/sh -c 'rclone mount GDrive-llt:/ /GDrive-llt --gid 10001 --umask 777  --allow-other --allow-non-empty --fast-list --drive-skip-gdocs --poll-interval=15s --vfs-cache-mode full --vfs-write-back 5s --bwlimit-file 16M --buffer-size=16M --vfs-read-chunk-size=32M --vfs-read-chunk-size-limit 2048M --vfs-cache-max-size 1G --vfs-cache-max-age 336h --vfs-read-ahead 32M --dir-cache-time=1000h --log-level INFO --cache-dir=/var/cache/rclone --timeout 1h'
+ExecStop=/bin/sh -c 'umount /GDrive-llt -l'
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
