@@ -1,9 +1,8 @@
-enp3s0 = External
-enp4s0 = Internal
+# enp3s0 = External
+# enp4s0 = Internal
 
-iptables -A FORWARD -o enp3s0 -i enp4s0 -s 77.77.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
-iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -t nat -F POSTROUTING
+iptables -A FORWARD -i enp4s0 -o enp3s0 -j ACCEPT
+iptables -A FORWARD -i enp3s0 -o enp4s0 -j ACCEPT
 iptables -t nat -A POSTROUTING -o enp3s0 -j MASQUERADE
 
 sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
