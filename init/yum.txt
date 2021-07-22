@@ -1,2 +1,0 @@
-yum update -y
-yum install vim net-tools openvpn lrzsz cockpit etherwake ethtool netfilter-persistent
