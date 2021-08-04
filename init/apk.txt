@@ -1,2 +1,0 @@
-apk update -y
-apk install vim net-tools openvpn lrzsz cockpit etherwake ethtool netfilter-persistent

@@ -1,0 +1,2 @@
+apt update -y
+apt install vim net-tools openvpn lrzsz cockpit etherwake ethtool netfilter-persistent
