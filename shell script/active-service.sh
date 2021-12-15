@@ -1,3 +1,4 @@
+#/bin/bash
 service=$1
 status=$(systemctl status $service | awk '/Active/{print $2}')
   
